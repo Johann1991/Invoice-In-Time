@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .stats-container {
+            width: 300px;
+            margin: auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .total-duration {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span><a href="billing.html">Billing</a></span>
+        <span><a href="settings.html">Settings</a></span>
+        <span><a href="login.html">Login></a></span>
+    </nav>
+    <div class="stats-container">
+        <h1>Statistics</h1>
+        <div class="total-duration">
+            <strong>Total Duration:</strong> <span id="totalDuration">0</span> hours
+        </div>
+    </div>
+    <script>
+        // Example code to update the total duration (you would replace this with the actual value from your backend)
+        document.getElementById('totalDuration').innerText = 42; // Replace 42 with the actual total duration
+    </script>
+</body>
+</html>

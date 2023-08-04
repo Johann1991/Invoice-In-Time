@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .nav {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+        }
+
+        .nav a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function calculateTotal() {
+            var table = document.getElementById('tasksTable');
+            var totalHours = 0;
+            var totalMinutes = 0;
+
+            for (var i = 1; i < table.rows.length - 1; i++) {
+                totalHours += parseInt(table.rows[i].cells[2].children[0].value || 0);
+                totalMinutes += parseInt(table.rows[i].cells[2].children[2].value || 0);
+            }
+
+            // Convert total minutes into hours and minutes
+            totalHours += Math.floor(totalMinutes / 60);
+            totalMinutes %= 60;
+
+            document.getElementById('totalDuration').innerText = totalHours + 'h ' + totalMinutes + 'm';
+        }
+
+        function deleteRow(rowIndex) {
+            var table = document.getElementById('tasksTable');
+            table.deleteRow(rowIndex);
+            calculateTotal();
+        }
+
+        function createNewRow() {
+            var table = document.getElementById('tasksTable');
+            var newRow = table.insertRow(table.rows.length - 1); // Insert above the Total Duration row
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+
+            var input1 = document.createElement('input');
+            input1.type = 'text';
+            input1.placeholder = 'Task';
+            cell1.appendChild(input1);
+
+            var input2 = document.createElement('input');
+            input2.type = 'text';
+            input2.placeholder = 'Description';
+            cell2.appendChild(input2);
+
+            var input3 = document.createElement('input');
+            input3.type = 'number';
+            input3.placeholder = 'Hours';
+            input3.style.width = '45%';
+            cell3.appendChild(input3);
+
+            var input4 = document.createElement('input');
+            input4.type = 'number';
+            input4.placeholder = 'Minutes';
+            input4.style.width = '45%';
+            cell3.appendChild(input4);
+
+            var addButton = document.createElement('button');
+            addButton.textContent = 'Add';
+            addButton.onclick = function () {
+                createNewRow();
+                calculateTotal(); // Call calculateTotal when Add button is clicked
+            };
+            cell4.appendChild(addButton);
+
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function () {
+                deleteRow(newRow.rowIndex);
+            };
+            cell5.appendChild(deleteButton);
+
+            // Separator
+            cell3.appendChild(document.createTextNode(' : '));
+        }
+
+        function confirmAction() {
+            // Customize this function as needed
+            alert("Confirmed!");
+        }
+
+        function cancelAction() {
+            // Customize this function as needed
+            alert("Cancelled!");
+        }
+
+        window.onload = function () {
+            createNewRow(); // Call this to create the initial blank row
+        };
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="settings.html">Settings</a>
+        <a href="login.html">Login</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <!-- Sidebar content -->
+            <div style="padding:10px;">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div style="padding:10px;">
+                <a href="settings.html">Settings</a><br>
+            </div>
+            <div style="padding:10px;">
+                <a href="billing.html">Billing</a><br>
+            </div>
+        </div>
+        <div class="main-content">
+            <table id="tasksTable">
+                <tr>
+                    <th>Task</th>
+                    <th>Description</th>
+                    <th>Duration (hh:mm)</th>
+                    <th>Add</th>
+                    <th>Delete</th>
+                </tr>
+                <!-- Rows will be added dynamically -->
+                <tr>
+                    <td colspan="4"><strong>Total Duration</strong></td>
+                    <td id="totalDuration">0h 0m</td>
+                </tr>
+            </table>
+            <button onclick="confirmAction()">Confirm</button>
+            <button onclick="cancelAction()">Cancel</button>
+        </div>
+    </div>
+</body>
+
+</html>
