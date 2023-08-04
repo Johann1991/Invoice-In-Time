@@ -63,15 +63,21 @@ th, td {
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    display: flex;
+    align-items: center; /* Vertically centers children */
+    justify-content: center; /* Horizontally centers children */
+    min-height: 100vh; /* Ensures body takes up at least full viewport height */
+    margin: 0; /* Removes default margin */
 }
+
 .login-container {
     width: 300px;
-    margin: auto;
     padding: 40px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
 .form-group {
     margin-bottom: 15px;
 }
