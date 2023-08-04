@@ -4,25 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stats Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        .stats-container {
-            width: 300px;
-            margin: auto;
-            padding: 40px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .total-duration {
-            font-size: 24px;
-            color: #333;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <nav>
@@ -30,10 +12,27 @@
         <span><a href="settings.html">Settings</a></span>
         <span><a href="login.html">Login></a></span>
     </nav>
-    <div class="stats-container">
-        <h1>Statistics</h1>
-        <div class="total-duration">
-            <strong>Total Duration:</strong> <span id="totalDuration">0</span> hours
+    <div class="container">
+        <div class="sidebar">
+            <!-- Sidebar content -->
+            <div style="padding:10px;">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div style="padding:10px;">
+                <a href="settings.html">Settings</a><br>
+            </div>
+            <div style="padding:10px;">
+                <a href="billing.html">Billing</a><br>
+            </div>
+        </div>
+        <div class="main-content">
+            <h1>Time Journal</h1>
+            <div class="stats-container">
+                <h1>Statistics</h1>
+                <div class="total-duration">
+                    <strong>Total Duration:</strong> <span id="totalDuration">0</span> hours
+                </div>
+            </div>
         </div>
     </div>
     <script>
