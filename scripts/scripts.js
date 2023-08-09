@@ -1,3 +1,4 @@
+// This function calculates the total amount of hours
 function calculateTotal() {
     var table = document.getElementById('tasksTable');
     var totalHours = 0;
@@ -16,13 +17,14 @@ function calculateTotal() {
     document.getElementById('totalDuration').innerText = totalHours + 'h ' + totalMinutes + 'm';
 }
 
-
+// This function deletes the row
 function deleteRow(rowIndex) {
     var table = document.getElementById('tasksTable');
     table.deleteRow(rowIndex);
     calculateTotal();
 }
 
+// This function creates a new row when the previous row is added
 function createNewRow() {
     var table = document.getElementById('tasksTable');
     var newRow = table.insertRow(table.rows.length - 1); // Insert above the Total Duration row
@@ -54,20 +56,25 @@ function createNewRow() {
     input4.style.width = '45%';
     cell3.appendChild(input4);
 
+    // For the Add button
     var addButton = document.createElement('button');
     addButton.textContent = 'Add';
+    addButton.className = 'table-button-add'; // Assigning the class
     addButton.onclick = function () {
-        createNewRow();
+        createNewRow(); // Call the creatNewRow function
         calculateTotal(); // Call calculateTotal when Add button is clicked
     };
     cell4.appendChild(addButton);
 
+    // For the Delete button
     var deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
+    deleteButton.className = 'table-button-delete'; // Assigning the class
     deleteButton.onclick = function () {
         deleteRow(newRow.rowIndex);
     };
     cell5.appendChild(deleteButton);
+
 
     // Separator
     cell3.appendChild(document.createTextNode(' : '));
@@ -91,6 +98,7 @@ function navigate(url) {
     window.location.href = url;
 }
 
+/* This function is used for the sidebar*/
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     const openArrow = document.querySelector('.open-arrow');

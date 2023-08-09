@@ -1,14 +1,14 @@
-/* Universal styling */
+/* ------------------------- Universal Styling ------------------------- */
 * {
     font-family: Arial, sans-serif;
 }
 
-/* Main container which contains the sidebar and main content */
 .container {
     display: flex;
 }
 
-/* Sidebar styling */
+/* ------------------------- Styling the sidebar ------------------------- */
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease;
 }
 
 .sidebar-main-content {
@@ -192,28 +192,132 @@
     width: 100%;
 }
 
-  
+/* ------------------------- Styling the main content ------------------------- */
+
 .main-content {
     flex-grow: 1;
     padding: 20px;
-    margin-left: 60px;  /* This is the contracted state margin */
-    transition: margin-left 0.3s ease; /* This ensures the margin transitions smoothly */
+    margin-left: 60px;
+    transition: margin-left 0.5s ease;
 }
 
 /* When sidebar is expanded, adjust main-content margin */
 .sidebar.expanded + .main-content {
-    margin-left: 200px;  /* This is the expanded state margin */
+    margin-left: 200px;
 }
 
-table {
+/* Styling the table managing the billing */
+.billing-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-th, td {
-    border: 1px solid #464646;
-    padding: 8px;
+.billing-table th, .billing-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 8px;
     text-align: left;
+}
+
+.billing-table th {
+    text-align: center;
+    background-color: #f5f5f5;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.billing-table tr:nth-child(odd) {
+    background-color: #f9f9f9; 
+}
+
+.billing-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Styling for the Total Duration row to differentiate it */
+.billing-table tr:last-child {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.billing-table td:nth-last-child(2),   /* For the 2nd to last column */
+.billing-table td:last-child {         /* For the last column */
+    text-align: center;
+}
+
+/* Button styles */
+.table-button-add {
+    padding: 5px 15px;
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.table-button-add:hover {
+    background-color: #ccc;
+    color: #464646;
+    border-color: #ccc;
+}
+
+/* Button styles */
+.table-button-delete {
+    padding: 5px 15px;
+    background-color: firebrick;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.table-button-delete:hover {
+    background-color: #ccc;
+    color: #464646;
+    border-color: #ccc;
+}
+
+.page-seperator {
+    margin: 20px 0px;
+}
+
+/* Styling for the buttons on the billing page below the table*/
+.confirm-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    border-color: #4CAF50;
+    border-radius: 5px;
+    padding: 10px 5px;
+    width: 100px;
+}
+
+.confirm-btn:hover {
+    background-color: #ccc;
+    color: #464646;
+    border-color: #ccc;
+}
+
+.cancel-btn {
+    background-color: firebrick;
+    color: #fff;
+    cursor: pointer;
+    border-color: firebrick;
+    border-radius: 5px;
+    padding: 10px 5px;
+    width: 100px;
+}
+
+.cancel-btn:hover {
+    background-color: #ccc;
+    color: #464646;
+    border-color: #ccc;
 }
 
 /* Styles for dashboard */

@@ -11,6 +11,12 @@
 <body>
     <div class="container">
         <div class="sidebar">
+            <!-- Hamburger menu for the mobile view -->
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>            
             <!-- Logo and toggle button container -->
             <div class="logo-container">
                 <img class="logo" src="./assets/Invoice-In-Time-Logo-250x250.png" alt="Logo" />
@@ -54,7 +60,7 @@
         </div>
         <div class="main-content">
             <h1>Time Journal</h1>
-            <table id="tasksTable">
+            <table id="tasksTable" class="billing-table">
                 <tr>
                     <th>Task</th>
                     <th>Description</th>
@@ -68,8 +74,10 @@
                     <td id="totalDuration">0h 0m</td>
                 </tr>
             </table>
-            <button onclick="confirmAction()">Confirm</button>
-            <button onclick="cancelAction()">Cancel</button>
+            <hr class="page-seperator">
+            <button onclick="confirmAction()" class="confirm-btn">Confirm</button>
+            <button onclick="cancelAction()" class="cancel-btn">Cancel</button>
+            <hr class="page-seperator">
         </div>
     </div>
 </body>
