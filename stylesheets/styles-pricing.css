@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    background-image: url(../assets/pricing-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers children vertically */
+    align-items: center;
+    width: 100vw; /* full viewport width */
+    height: 100vh; /* full viewport height */
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; /* Change from flex-end */
+    align-items: center;
+    height: 50px;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: #464646;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    justify-content: flex-start;
+    padding: 0px;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* creates a space between each nav item */
+    padding: 10px 5px;
+}
+
+nav span {
+    margin: 0px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    background-image: url('../assets/logo-white.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    width: 40px; /* Adjust based on your logo width */
+    height: 40px; /* Adjust based on your logo height */
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    flex-grow: 1; /* This ensures the pricing table grows to take available space, effectively pushing the nav to the top */
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 40px 20px;
+    margin: 20px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 350px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    margin-bottom: 20px; /* Adjust as required */
+}
+
+.price {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 30px; /* Adjust as required */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    margin-bottom: 30px; /* Adjust as required */
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+li.disabled {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}

@@ -1,13 +1,21 @@
 /* Style login */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    display: flex;
-    align-items: center; /* Vertically centers children */
-    justify-content: center; /* Horizontally centers children */
     min-height: 100vh; /* Ensures body takes up at least full viewport height */
     margin: 0; /* Removes default margin */
+}
+
+.main-container {
+    background-image: url(../assets/pricing-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw; /* full viewport width */
+    height: 100vh; /* full viewport height */
+    display: flex; /* Added for centering */
+    align-items: center; /* Vertically centers children */
+    justify-content: center; /* Horizontally centers children */
 }
 
 .login-container {
@@ -31,6 +39,7 @@ input[type="password"] {
     padding: 10px;
     border: 1px solid #ccc;
 }
+
 .login-btn {
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -38,4 +47,23 @@ input[type="password"] {
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 5px;
+}
+
+.login-btn:hover{
+    background-color: #3d8940;
+    color: white;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #4CAF50; /* Same color as the login button for consistency */
+    padding-top: 15px;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #45a049; /* Slightly darker shade on hover */
 }
