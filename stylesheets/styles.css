@@ -91,10 +91,12 @@
 
 .arrow.open-arrow {
     display: inline-block;
+    background-image: url('./assets/sidebar-open-arrow.png');
 }
 
 .arrow.close-arrow {
     display: none;
+    background-image: url('./assets/sidebar-close-arrow.png');
 }
 
 .sidebar.expanded {

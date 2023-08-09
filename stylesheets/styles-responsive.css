@@ -1,0 +1,37 @@
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none; 
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10000; /* Ensure it's on top of everything */
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.bar {
+    background-color: #000;
+    height: 3px;
+    margin: 2px 0;
+    width: 25px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Initially hide all the sidebar contents except for the hamburger */
+    .sidebar > *:not(.hamburger-menu) {
+        display: none;
+        width: auto;  /* or a fixed width just enough for the hamburger menu, e.g., 40px */
+        transition: width 0.3s ease;  /* smooth transition for visual appeal */
+    }
+
+    /* When expanded, show everything */
+    .sidebar.expanded > * {
+        display: block;
+        width: 100%;
+    }
+}

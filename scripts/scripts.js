@@ -115,3 +115,14 @@ function toggleSidebar() {
 
 document.addEventListener("DOMContentLoaded", toggleSidebar); // Call the function once the DOM is fully loaded
 
+// Responsive menu replacing sidebar
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+    var sidebar = document.querySelector('.sidebar');
+    if (sidebar.classList.contains('expanded')) {
+        sidebar.classList.remove('expanded');
+    } else {
+        sidebar.classList.add('expanded');
+    }
+});
+
+
