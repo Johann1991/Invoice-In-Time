@@ -4,8 +4,9 @@ function calculateTotal() {
     var totalMinutes = 0;
 
     for (var i = 1; i < table.rows.length - 1; i++) {
-        totalHours += parseInt(table.rows[i].cells[2].children[0].value || 0);
-        totalMinutes += parseInt(table.rows[i].cells[2].children[2].value || 0);
+        var durationCell = table.rows[i].cells[2];
+        totalHours += parseInt(durationCell.children[0].value || 0);
+        totalMinutes += parseInt(durationCell.children[2].value || 0);
     }
 
     // Convert total minutes into hours and minutes
@@ -14,6 +15,7 @@ function calculateTotal() {
 
     document.getElementById('totalDuration').innerText = totalHours + 'h ' + totalMinutes + 'm';
 }
+
 
 function deleteRow(rowIndex) {
     var table = document.getElementById('tasksTable');
@@ -84,3 +86,24 @@ function cancelAction() {
 window.onload = function () {
     createNewRow(); // Call this to create the initial blank row
 };
+
+function navigate(url) {
+    window.location.href = url;
+}
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const openArrow = document.querySelector('.open-arrow');
+    const closeArrow = document.querySelector('.close-arrow');
+
+    openArrow.addEventListener('click', function() {
+        sidebar.classList.add('expanded');
+    });
+
+    closeArrow.addEventListener('click', function() {
+        sidebar.classList.remove('expanded');
+    });
+}
+
+document.addEventListener("DOMContentLoaded", toggleSidebar); // Call the function once the DOM is fully loaded
+

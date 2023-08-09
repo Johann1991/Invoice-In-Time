@@ -1,0 +1,267 @@
+/* Universal styling */
+* {
+    font-family: Arial, sans-serif;
+}
+
+/* Main container which contains the sidebar and main content */
+.container {
+    display: flex;
+}
+
+/* Sidebar styling */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    background-color: #464646;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.sidebar-seperator {
+    border: 1px solid #ccc;
+    width: 90%;
+    margin: 10px;
+}
+
+.sidebar-item {
+    margin: 10px 0;
+    width: 90%; 
+    text-align: center;
+    background-color: #464646;
+    color: #ffff;
+    border: 0;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.sidebar-item:hover {
+    transition: 0.90s;
+    background-color: grey;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 90%;
+    cursor: pointer;
+}
+
+.logo {
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    padding-bottom: 0px;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60px;
+    height: 90px;
+}
+
+.arrow {
+    position: absolute;
+    bottom: 1px;
+    left: 25px;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.arrow.open-arrow {
+    display: inline-block;
+}
+
+.arrow.close-arrow {
+    display: none;
+}
+
+.sidebar.expanded {
+    width: 200px;
+}
+
+.sidebar.expanded .logo-container {
+    flex-direction: row;
+}
+
+.sidebar.expanded .open-arrow {
+    display: none;
+}
+
+.sidebar.expanded .close-arrow {
+    display: inline-block;
+}
+
+.sidebar-item img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 0px;
+    vertical-align: middle;
+}
+
+.sidebar-item span {
+    display: none;
+}
+
+.sidebar.expanded .sidebar-item span {
+    display: inline;
+    padding-left: 10px;
+}
+
+.sidebar.expanded .sidebar-item {
+    text-align: left;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+}
+
+/*Styling for the user profile section on the sidebar*/
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.user-image {
+    border-radius: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 0px;
+    vertical-align: middle;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-name, .user-email {
+    display: none;
+    font-size: 14px;
+    margin: 0; 
+    color: #fff;
+}
+
+.sidebar.expanded .user-name, .sidebar.expanded .user-email {
+    display: block;
+}
+
+.user-email {
+    font-size: 12px;
+    color: #fff;
+}
+
+.sidebar.expanded .user-profile {
+    justify-content: flex-start;
+}
+
+.sidebar.expanded .user-details {
+    align-items: flex-start;
+}
+
+.sidebar-bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+}
+
+  
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 60px;  /* This is the contracted state margin */
+    transition: margin-left 0.3s ease; /* This ensures the margin transitions smoothly */
+}
+
+/* When sidebar is expanded, adjust main-content margin */
+.sidebar.expanded + .main-content {
+    margin-left: 200px;  /* This is the expanded state margin */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #464646;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Styles for dashboard */
+
+.stats-container {
+    width: 300px;
+    margin: auto;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.total-duration {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Styling Settings */
+
+.settings-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px 0px;
+    border: 1px solid #ccc;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
