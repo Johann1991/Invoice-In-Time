@@ -1,31 +1,22 @@
-/* Style login */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    min-height: 100vh; /* Ensures body takes up at least full viewport height */
-    margin: 0; /* Removes default margin */
+    min-height: 100vh;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;  /* This prevents scrolling */
 }
-
 .main-container {
-    background-image: url(../assets/pricing-background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100vw; /* full viewport width */
-    height: 100vh; /* full viewport height */
-    display: flex; /* Added for centering */
-    align-items: center; /* Vertically centers children */
-    justify-content: center; /* Horizontally centers children */
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;    /* Ensure children are centered vertically */
+    justify-content: space-between; /* Adjust children spacing */
+    background-image: url('/assets/pricing-background.png');
+    background-size: cover; /* This will ensure the image covers the entire container */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+    background-position: center center; /* This ensures the image is centered */
 }
-
-.login-container {
-    width: 300px;
-    padding: 40px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
 .form-group {
     margin-bottom: 15px;
 }
@@ -33,14 +24,99 @@ label {
     display: block;
     margin-bottom: 5px;
 }
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
 }
-
-.login-btn {
+.auth-btn {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    transition: background-color 0.1s;
+}
+.register-btn {
+    background-color: #4CAF50;
+}
+.register-btn:hover {
+    background-color: #3d8940;
+}
+.auth-container {
+    width: 50%;
+    height: 100vh;
+    display: flex;          /* Add this */
+    align-items: center;    /* Add this */
+    justify-content: center;/* Add this */
+    flex-direction: column; /* Add this - to ensure children are stacked vertically */
+    margin-top: 50vh; /* Adjust this value to move the form downward */
+}
+.prompt-container {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);  /* Adjust the last value (0.8) for more opacity */
+    z-index: 3; /* Add this to ensure it's above the image */
+}
+.prompt-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3); /* adjust the opacity as needed */
+    z-index: 1;
+}
+.prompt-container p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+.prompt-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* This ensures the image stays below the overlay */
+}
+.register-container, .login-container {
+    width: 50%;
+    height: 100vh;
+    display: none;
+}
+body.forms-toggled .login-container {
+    display: block;
+}
+body:not(.forms-toggled) .register-prompt {
+    display: none;
+}
+body:not(.forms-toggled) .register-container {
+    display: block;
+}
+body.forms-toggled .login-prompt {
+    display: none;
+}
+.register-prompt p, .login-prompt p {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 50px 20px;
+}
+.register-prompt a, .login-prompt a {
+    font-size: 15px;
+}
+.login-btn, .register-btn {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -48,22 +124,19 @@ input[type="password"] {
     cursor: pointer;
     width: 100%;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
-
-.login-btn:hover{
+.login-btn:hover, .register-btn:hover {
     background-color: #3d8940;
-    color: white;
 }
-
 .forgot-password {
     display: block;
     margin-top: 15px;
     text-decoration: none;
-    color: #4CAF50; /* Same color as the login button for consistency */
+    color: #4CAF50;
     padding-top: 15px;
     transition: color 0.3s;
 }
-
 .forgot-password:hover {
-    color: #45a049; /* Slightly darker shade on hover */
+    color: #45a049;
 }
